@@ -1,7 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 require('es7-object-polyfill');
-//var productInfo = require("./productInfo.js");
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
