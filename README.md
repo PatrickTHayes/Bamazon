@@ -4,6 +4,7 @@ mysql and node, utilize npms to make a working mock store. levels Customer, mana
 Steps to using bamazon.
 1. run npm install. package.json will make sure you get the right dependencies.
 2. set up the basic database schema and some dummy values by running bamazonSeeds.sql file (mysql -u root <bamazonSeeds.sql)
+3.
 3. Run the bamazonCustomer.js in node
     --on load it will display a list of products and some general info
     --it will prompt the user what they would like to buy based on the id from the previous list
@@ -12,6 +13,8 @@ Steps to using bamazon.
         customer wants to buy more items
         --if there isn't enough stock it will print "We dont have that many, please place a different order" and bring back
         the list of items the customer can order
+![img1](/bamamazonImages/bamCustomerImg1.PNG)
+![img2](/bamamazonImages/bamCustomerImg2.PNG)
 4. In order for Supervisor to work, its important to make at least one succesful transaction in each department!
 5. Run the bamazonManager.js in node
     -- it will display a list of 4 choices and prompt the user to choose one.
@@ -25,6 +28,12 @@ Steps to using bamazon.
         It then adds the quantity and updates the database with the new total.
     The fourth will prompt the user for a name of an item to be added, the department it belongs in, the price, and quantity.
         After user input will update the database products table with a new item.
+![img1](/bamamazonImages/bamManagerImg1.PNG)
+![img2](/bamamazonImages/bamManagerImg2.PNG)
+![img3](/bamamazonImages/bamManagerImg3.PNG)
+![img4](/bamamazonImages/bamManagerImg4.PNG)
+![img5](/bamamazonImages/bamManagerImg5.PNG)
+
 6. Run the bamazonSupervisor.js in node
         Make sure you did steps 1,2,4 first
         It will prompt the user for one of two options
@@ -43,3 +52,12 @@ Steps to using bamazon.
 ├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
 └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
         The second option will just output a "running create" line
+![img1](/bamamazonImages/bamSupervisorImg1.PNG)
+![img2](/bamamazonImages/bamSupervisorImg2.PNG)
+
+
+
+
+
+screenshots
+
