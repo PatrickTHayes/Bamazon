@@ -30,18 +30,17 @@ function displayProducts() {
             //instead, create an object with id and quantity
         }
         //console.log(obj)
+        console.log('\n');
 
-        console.log(idArray);
         buyItem(idArray, res);
 
     });
 }
 
 function buyItem(idArray, res) {
-    console.log(idArray);
     inquirer
         .prompt([{
-            type: 'rawlist',
+            type: 'list',
             name: 'choice',
             message: 'What would you like to buy?',
             choices: idArray
@@ -57,29 +56,33 @@ function buyItem(idArray, res) {
             }
             else {
                 var remainQuant = res[(answers.choice - 1)].stock_quantity - answers.chosenQuantity;
-                order(answers.choice, remainQuant);
                 var totalCost = answers.chosenQuantity * res[(answers.choice - 1)].price;
-                console.log(totalCost);
+                var totalProductSales = totalCost + res[(answers.choice - 1)].product_sales;
+                console.log(totalCost + "\n");
+                order(answers.choice, remainQuant, totalProductSales);
             }
         });
 }
 
-function order(item, rQuan) {
+function order(item, rQuan, addCost) {
     item = parseInt(item);
     /*UPDATE `products`
     SET stock_quantity = 145
     WHERE id = 5*/
     var query = connection.query(
         "UPDATE products SET ? WHERE ?", [{
-                stock_quantity: rQuan
+                stock_quantity: rQuan,
+                product_sales: addCost
             },
             {
                 id: item
             }
         ],
         function(err, res) {
-            /*console.log(query.sql);
-            console.log(rQuan + "  " + item);*/
+            console.log("success \n");
+            displayProducts();
+
+
         }
     );
 
