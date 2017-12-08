@@ -52,7 +52,7 @@ function buyItem(idArray, res) {
         .then(answers => {
             if (res[(answers.choice - 1)].stock_quantity < answers.chosenQuantity) {
                 console.log("We dont have that many, please place a different order");
-                //displayProducts();
+                displayProducts();
             }
             else {
                 var remainQuant = res[(answers.choice - 1)].stock_quantity - answers.chosenQuantity;

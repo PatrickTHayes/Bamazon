@@ -16,7 +16,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    console.log("connected as id " + connection.threadId + "\n");
     intro();
 });
 
@@ -72,7 +71,7 @@ function displayAll() {
             )
         }
         console.log(table.toString());
-
+        intro();
     })
 }
 
@@ -89,6 +88,7 @@ function displayLow() {
             )
         }
         console.log(table.toString());
+        intro();
     })
 }
 
@@ -98,7 +98,6 @@ function update() {
         for (var i = 0; i < res.length; i++) {
             products.push(res[i].product_name);
         }
-        console.log(products);
         inquirer //get choice and quantity to update
             .prompt([{
                 type: 'list',
@@ -111,7 +110,6 @@ function update() {
                 message: 'How many are being added?'
             }])
             .then(answers => {
-                console.log(JSON.stringify(answers, null, '  '));
                 connection.query("SELECT id,stock_quantity FROM products WHERE product_name='" + answers.products + "'", function(err, res) {
                     //get id and original amount of the stock
                     var quanTotal = parseInt(answers.additional) + parseInt(res[0].stock_quantity); //add together
@@ -121,6 +119,7 @@ function update() {
                         id: res[0].id
                     }], function(res, err) {
                         console.log("success");
+                        intro();
                         //nothing here, just setting new quantity above
                     })
                 })
@@ -155,7 +154,7 @@ function create() {
                 stock_quantity: answers.quan
             }, function(res, err) {
                 console.log("success");
-                //nothing to do here
+                intro();
             })
         })
 }
