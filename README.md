@@ -52,8 +52,8 @@ Steps to using bamazon.
 ├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
 └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
         The second option will just output a "running create" line
-![img1](/bamazonImages/bamSupervisorImg1.PNG)
-![img2](/bamazonImages/bamSupervisorImg2.PNG)
+![img1](/bamazonImages/bamSuperImg1.PNG)
+![img2](/bamazonImages/bamSuperImg2.PNG)
 
 
 
